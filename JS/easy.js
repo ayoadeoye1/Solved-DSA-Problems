@@ -50,3 +50,36 @@ var countValidSelections = function(nums) {
 
   return validSelections;
 };
+
+
+___
+
+/**
+ * 
+ * @name 
+ * 
+ * @description 
+ * 
+ * 
+ */
+var canAliceWin = function(n) {
+    let arem = 10;
+    let brem = 9;
+    let remain = n;
+    let isAliceTurn = true;
+    while (remain > 0) {
+        if (isAliceTurn) {
+            remain -= arem;
+            brem = arem - 1;
+            isAliceTurn = false
+            if(remain < 0) return false
+            if(remain === 0) return true
+        } else {
+            remain -= brem;
+            arem = brem - 1
+            isAliceTurn = true
+            if(remain < 0) return true
+            if(remain === 0) return false
+        }
+    }
+}
