@@ -35,3 +35,29 @@ var canFinish = function(n, prerequisites) {
     }
     return n===completed
 };
+
+/**
+* 
+* @name Binary-Tree-To-Linked-List
+* @alias BST
+* @description 
+* 
+* 
+*/
+var flatten = function(root) {
+    if(!root){
+        return 
+    }
+    let right = root.right;
+    let left = root.left;
+    flatten(right);
+    flatten(left);
+    let subRight = root.right;
+    root.right = root.left;
+    root.left=null;
+    let current = root;
+    while(current.right){
+        current = current.right;
+    }
+    current.right = subRight;
+};
