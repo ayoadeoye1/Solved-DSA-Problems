@@ -130,4 +130,3 @@ var diameterOfBinaryTree = function(root) {
   dfs(root);
   return maxLen;
 };
-
