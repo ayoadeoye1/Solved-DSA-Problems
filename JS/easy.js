@@ -130,3 +130,26 @@ var diameterOfBinaryTree = function(root) {
   dfs(root);
   return maxLen;
 };
+
+
+/**
+* 
+* @name Reverse-LinkedList
+* @alias List
+* @description 
+* 
+* 
+*/
+var reverseList = function(head) {
+  if(!head){
+      return head;
+  }
+  let prev = null, current = head;
+  while(current){
+      const next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+  }
+  return prev;
+};
