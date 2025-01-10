@@ -198,3 +198,20 @@ var majorityElement = function(nums) {
   })
   return maxEle;
 };
+//Optimal Solution -- Boyer Moore Voting Algorithm
+var majorityElement = function(nums) {
+  let count = 0;
+  let candidate = null;
+  for(let i=0; i<=nums.length-1; i++){
+      if(count===0){
+          candidate = nums[i];
+      }
+
+      if(nums[i]===candidate){
+          count +=1
+      }else {
+          count -=1
+      }
+  }
+  return candidate;
+};
