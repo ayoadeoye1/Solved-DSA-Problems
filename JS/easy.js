@@ -179,3 +179,22 @@ function hasCycle(head) {
   return true;
 };
 
+//My Solution!
+var majorityElement = function(nums) {
+  const yt = nums.length/2;
+  let hash = {};
+  for(let i=0; i<=nums.length-1; i++){
+      if(nums[i] in hash){
+          hash[nums[i]] += 1;
+      }else {
+          hash[nums[i]] = 1;
+      }
+  }
+  let maxEle = -Infinity;
+  Object.entries(hash).map(([key, val]) => {
+      if(val > yt) {
+          maxEle = Math.max(maxEle, Number(key));
+      }
+  })
+  return maxEle;
+};
