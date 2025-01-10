@@ -74,3 +74,27 @@ func hasCycle(head *ListNode) bool {
 	}
 	return true
 }
+
+/**
+ *
+ * @name Majority-Element
+ *
+ * @description Elements That Occured Most In An Array
+ *
+ * Optimal Solution -- Boyer Moore Voting Algorithm
+ */
+func majorityElement(nums []int) int {
+	count := 0
+	candidate := 0
+	for i := 0; i <= len(nums)-1; i++ {
+		if count == 0 {
+			candidate = nums[i]
+		}
+		if candidate == nums[i] {
+			count++
+		} else {
+			count--
+		}
+	}
+	return candidate
+}

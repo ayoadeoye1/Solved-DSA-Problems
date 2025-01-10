@@ -179,6 +179,14 @@ function hasCycle(head) {
   return true;
 };
 
+/**
+ * 
+ * @name Majority-Element
+ * 
+ * @description Elements That Occured Most In An Array
+ * 
+ * 
+ */
 //My Solution!
 var majorityElement = function(nums) {
   const yt = nums.length/2;
