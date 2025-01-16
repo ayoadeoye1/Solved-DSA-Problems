@@ -35,22 +35,9 @@ Each folder contains:
 
 ## 🧪 Running Solutions
 
-- **NOTE** .
+- **NOTE** To run any algorithm, copy the function and head on to the website below to run it, providing the right input format based on the datatype.
 
-### JavaScript
-```bash
-node path/to/solution.js
-```
-
-### TypeScript
-```bash
-tsc path/to/solution.ts && node path/to/solution.js
-```
-
-### Go
-```bash
-go run path/to/solution.go
-```
+[https://www.boot.dev/playground/go](https://www.boot.dev/playground/go)
 
 ## 🌟 Contributions
 
