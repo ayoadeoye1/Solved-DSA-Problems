@@ -35,7 +35,7 @@ Each folder contains:
 
 ## 🧪 Running Solutions
 
-- **NOTE** make sure you call just function you want to run, and supply the necessary input(s).
+- **NOTE** .
 
 ### JavaScript
 ```bash
