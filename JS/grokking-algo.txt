@@ -1,0 +1,26 @@
+```
+function binSearch(arr, ele) {
+  let start = 0;
+  let end = arr.length-1;
+  while (start <= end) {
+    let mid =  Math.floor((start+end)/2);
+    let guess = arr[mid];
+    if(ele === guess){
+      console.log(mid);
+      return mid;
+    }
+    console.log(arr.slice(start, end));
+    if(guess > ele){
+      end = mid-1;
+    }else {
+      start = mid+1;
+    }
+  }
+  console.log(null)
+  return null;
+}
+
+binSearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,200,300,400,500,600,700,701], 11)
+```
+
+- traveling salesperson
