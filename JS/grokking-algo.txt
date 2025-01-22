@@ -34,3 +34,17 @@ function divandConc(a, b) {
   return divandConc(b, a%b)
 }
 divandConc(90,36)
+
+---------------------------
+
+function quickSort(arr) {
+  if(arr.length < 2){
+    return arr;
+  }
+  let pivot = arr[0]
+  let left = subArrLeft(arr, pivot);
+  let right = subArrRight(arr, pivot);
+  // console.log(left, right, "AsdfG");
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+console.log(quickSort([20,21,1,26,30,29,28,2,22,3,4,23,5,24,15,6,25,7]));
