@@ -37,6 +37,24 @@ divandConc(90,36)
 
 ---------------------------
 
+function subArrLeft(arr, piv) {
+  let sub = []
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i]<piv){
+      sub.push(arr[i])
+    }
+  }
+  return sub;
+}
+function subArrRight(arr, piv) {
+  let sub = []
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i]>piv){
+      sub.push(arr[i])
+    }
+  }
+  return sub;
+}
 function quickSort(arr) {
   if(arr.length < 2){
     return arr;
