@@ -62,3 +62,24 @@ var flatten = function(root) {
     }
     current.right = subRight;
 };
+
+
+//BruteForce
+var bulbSwitch = function(n) {
+    let arr = new Array(n).fill(0)
+    for(let i=0; i<n; i++){
+        const num = i+1;
+        for(let j=1; j<=n; j++){
+            if(j%num === 0){
+                arr[j] ^=1;
+            }
+        }
+    }
+    let count = 0;
+    console.log(arr);
+    for(let i=0; i<arr.length; i++){
+        count += arr[i];
+    }
+    console.log(count);
+    return count;
+};
