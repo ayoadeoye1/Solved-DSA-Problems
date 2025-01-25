@@ -83,3 +83,9 @@ var bulbSwitch = function(n) {
     console.log(count);
     return count;
 };
+
+//Bulbs that are tggled in number of odd times remains on
+//for ith of n, all its factors are toggled
+var bulbSwitch = function(n) {
+    return Math.floor(Math.sqrt(n));
+};
