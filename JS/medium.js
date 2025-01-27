@@ -86,6 +86,7 @@ var bulbSwitch = function(n) {
 
 //Bulbs that are tggled in number of odd times remains on
 //for ith of n, all its factors are toggled
+//Tags: Factors Even Odd
 var bulbSwitch = function(n) {
     return Math.floor(Math.sqrt(n));
 };
