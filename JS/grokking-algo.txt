@@ -82,3 +82,14 @@ function maxSub(arr) {
   console.log(max);
   return max;
 }
+//optimised
+function maxSub(arr) {
+  let max = -Infinity;
+  let currMax = 0;
+  for (let i = 0; i < arr.length; i++) {
+    currMax = Math.max(currMax+arr[i], arr[i]);
+    max = Math.max(currMax, max);
+  }
+  console.log(max);
+  return max;
+}
