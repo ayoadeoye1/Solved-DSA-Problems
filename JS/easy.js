@@ -242,3 +242,19 @@ var invertTree = function(root) {
   root.right = left;
   return root;
 };
+
+//max parenthensis depth
+var maxDepth = function(s) {
+  let max = 0;
+  let count = [];
+  for(let i=0; i<s.length; i++){
+      if(s[i]==="("){
+          count.push("(");
+      }
+      if(s[i]===")"){
+          max = Math.max(max, count.length);
+          count.pop("(");
+      }
+  }
+  return max;
+};
