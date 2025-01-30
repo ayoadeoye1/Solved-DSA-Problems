@@ -272,3 +272,23 @@ var maxDepth = function(s) {
   }
   return max;
 };
+
+//simplified approach
+var isValid = function(s) {
+    let paren = {
+        "{": "}",
+        "[": "]",
+        "(": ")",
+    }
+    let stack = []
+    for(let i=0; i<s.length; i++){
+        if(paren[s[i]]){
+            stack.push(s[i].toString());
+        }else if(stack.length===0 || paren[stack[stack.length-1]]!==s[i]){
+            return false
+        }else {
+            stack.pop()
+        }
+    }
+    return stack.length===0;
+  };
