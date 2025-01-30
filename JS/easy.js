@@ -258,7 +258,6 @@ var maxDepth = function(s) {
   }
   return max;
 };
-
 var maxDepth = function(s) {
   let max = 0;
   let count = 0;
