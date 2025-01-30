@@ -1,5 +1,7 @@
 package golang
 
+import "fmt"
+
 /**
  *
  * @name
@@ -122,4 +124,52 @@ func invertTree(root *TreeNode) *TreeNode {
 	root.Left = right
 	root.Right = left
 	return root
+}
+
+// BFS Graph Implementation
+func bfs(start string, graph map[string][]string) {
+	queue := []string{start}
+	visted := make(map[string]bool)
+	for len(queue) > 0 {
+		// fmt.Println("Q deQ", queue)
+		current := queue[0] //get index 1 of the queue
+		queue = queue[1:]   //remove first index from queue
+		if visted[current] {
+			continue
+		}
+		visted[current] = true
+		fmt.Println("Current City: ", current)
+		for _, neigh := range graph[current] {
+			if !visted[neigh] {
+				queue = append(queue, neigh)
+			}
+		}
+	}
+}
+func bfsMain() {
+	graph := map[string][]string{
+		"Abuja":      {"Minna", "Lokoja", "Jos", "Kaduna"},
+		"Minna":      {"Abuja", "Kaduna", "Ilorin"},
+		"Lokoja":     {"Abuja", "Benin City", "Makurdi"},
+		"Jos":        {"Abuja", "Bauchi", "Kaduna", "Gombe"},
+		"Kaduna":     {"Abuja", "Kano", "Zaria", "Jos"},
+		"Ilorin":     {"Minna", "Ibadan", "Oshogbo"},
+		"Benin City": {"Lokoja", "Asaba", "Warri"},
+		"Makurdi":    {"Lokoja", "Enugu", "Jalingo"},
+		"Bauchi":     {"Jos", "Gombe", "Maiduguri"},
+		"Gombe":      {"Jos", "Bauchi", "Yola"},
+		"Kano":       {"Kaduna", "Katsina", "Dutse"},
+		"Zaria":      {"Kaduna", "Kano"},
+		"Asaba":      {"Benin City", "Onitsha", "Awka"},
+		"Onitsha":    {"Asaba", "Awka", "Enugu"},
+		"Enugu":      {"Onitsha", "Awka", "Abakaliki"},
+		"Ibadan":     {"Ilorin", "Oshogbo", "Abeokuta", "Lagos"},
+		"Oshogbo":    {"Ibadan", "Ado-Ekiti", "Akure"},
+		"Ado-Ekiti":  {"Oshogbo", "Akure"},
+		"Akure":      {"Ado-Ekiti", "Benin City"},
+		"Abeokuta":   {"Ibadan", "Lagos"},
+		"Lagos":      {"Abeokuta", "Ibadan"},
+	}
+	fmt.Println("Traversal starts, Cities in Nigeria by distance from Abuja FCT")
+	bfs("Abuja", graph)
 }
