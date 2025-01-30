@@ -105,3 +105,22 @@ const graph = {
   "thom": [],
   "jonny": []
 };
+function bfs(name) {
+  let queue = [name];
+  let visited = {};
+  let arr = [];
+  while (queue.length>0) {
+    const current = queue.shift();
+    if(visited[current]) continue;
+    
+    console.log(current, graph[current], visited)
+    visited[current] = true;
+    arr.push(current);
+    for(let x of graph[current]){
+      // console.log("X Queue", x, queue)
+      if(!visited[x]) queue.push(x);
+    }
+  }
+  console.log("Array From Graph: ", arr);
+}
+bfs("you")
