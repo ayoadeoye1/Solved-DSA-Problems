@@ -170,6 +170,6 @@ func bfsMain() {
 		"Abeokuta":   {"Ibadan", "Lagos"},
 		"Lagos":      {"Abeokuta", "Ibadan"},
 	}
-	fmt.Println("Traversal starts, Cities in Nigeria by distance from Abuja FCT")
+	fmt.Println("Traversal starts, Cities in Nigeria by distance from Abuja FCT") //Change the city name to find nearest to city you input
 	bfs("Abuja", graph)
 }

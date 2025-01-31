@@ -124,3 +124,7 @@ function bfs(name) {
   console.log("Array From Graph: ", arr);
 }
 bfs("you")
+
+//Dijkstra's Algorithm
+
+//Bellman-Ford Algorithm
