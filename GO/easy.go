@@ -194,5 +194,33 @@ func dijkstra(start string, graph map[string][]Edge) map[string]int {
 	// Simulate a priority queue using a slice
 	queue := []string{start}
 
+	for len(queue) > 0 {
+		// Find the node with the smallest distance in the queue
+		current := queue[0]
+		currentIndex := 0
+		for i, node := range queue {
+			if distances[node] < distances[current] {
+				current = node
+				currentIndex = i
+			}
+		}
+
+		// Remove the current node from the queue
+		queue = append(queue[:currentIndex], queue[currentIndex+1:]...)
+
+		// Relax edges
+		for _, edge := range graph[current] {
+			neighbor := edge.node
+			weight := edge.weight
+			newDistance := distances[current] + weight
+
+			// If a shorter path is found, update the distance
+			if newDistance < distances[neighbor] {
+				distances[neighbor] = newDistance
+				queue = append(queue, neighbor) // Add the neighbor to the queue
+			}
+		}
+	}
+
 	return distances
 }
