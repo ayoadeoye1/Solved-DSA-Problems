@@ -1,6 +1,9 @@
 package golang
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 /**
  *
@@ -172,4 +175,24 @@ func bfsMain() {
 	}
 	fmt.Println("Traversal starts, Cities in Nigeria by distance from Abuja FCT") //Change the city name to find nearest to city you input
 	bfs("Abuja", graph)
+}
+
+// Edge represents a weighted edge in the graph
+type Edge struct {
+	node   string
+	weight int
+}
+
+// Dijkstra's algorithm implementation
+func dijkstra(start string, graph map[string][]Edge) map[string]int {
+	distances := make(map[string]int)
+	for node := range graph {
+		distances[node] = math.MaxInt32 // Initialize distances to infinity
+	}
+	distances[start] = 0 // Distance to the start node is 0
+
+	// Simulate a priority queue using a slice
+	queue := []string{start}
+
+	return distances
 }

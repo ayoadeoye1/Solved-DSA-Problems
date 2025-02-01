@@ -126,5 +126,6 @@ function bfs(name) {
 bfs("you")
 
 //Dijkstra's Algorithm
+//CONS: DAGs, does not support graphs with negative edges.
 
 //Bellman-Ford Algorithm
