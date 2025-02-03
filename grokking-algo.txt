@@ -127,5 +127,45 @@ bfs("you")
 
 //Dijkstra's Algorithm
 //CONS: DAGs, does not support graphs with negative edges.
+func dijkstra(start string, graph map[string][]Edge) map[string]int {
+	distances := make(map[string]int)
+	for node := range graph {
+		distances[node] = math.MaxInt32 // Initialize distances to infinity
+	}
+	distances[start] = 0 // Distance to the start node is 0
+
+	// Simulate a priority queue using a slice
+	queue := []string{start}
+
+	for len(queue) > 0 {
+		// Find the node with the smallest distance in the queue
+		current := queue[0]
+		currentIndex := 0
+		for i, node := range queue {
+			if distances[node] < distances[current] {
+				current = node
+				currentIndex = i
+			}
+		}
+
+		// Remove the current node from the queue
+		queue = append(queue[:currentIndex], queue[currentIndex+1:]...)
+
+		// Relax edges
+		for _, edge := range graph[current] {
+			neighbor := edge.node
+			weight := edge.weight
+			newDistance := distances[current] + weight
+
+			// If a shorter path is found, update the distance
+			if newDistance < distances[neighbor] {
+				distances[neighbor] = newDistance
+				queue = append(queue, neighbor) // Add the neighbor to the queue
+			}
+		}
+	}
+
+	return distances
+}
 
 //Bellman-Ford Algorithm
