@@ -90,6 +90,7 @@ var bulbSwitch = function(n) {
 var bulbSwitch = function(n) {
     return Math.floor(Math.sqrt(n));
 };
+
 function findOptimalResources(arr, k) {
     // Write your code here
     const n = arr.length;
@@ -110,3 +111,4 @@ function findOptimalResources(arr, k) {
     }
     return maxSum;
 }
+
