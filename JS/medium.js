@@ -112,3 +112,28 @@ function findOptimalResources(arr, k) {
     return maxSum;
 }
 
+function findOptimalResources(arr, k) {
+    const n = arr.length;
+    if (k > n) return -1;
+    let maxSum = -1;
+    let currSum = 0;
+    let uniqueSet = new Set();
+    let start = 0;
+    
+    for (let end = 0; end < n; end++) {
+        while (uniqueSet.has(arr[end])) {
+            uniqueSet.delete(arr[start]);
+            currSum -= arr[start];
+            start++;
+        }
+        uniqueSet.add(arr[end]);
+        currSum += arr[end];
+        if (end - start + 1 === k) {
+            maxSum = Math.max(maxSum, currSum);
+            uniqueSet.delete(arr[start]);
+            currSum -= arr[start];
+            start++;
+        }
+    }
+    return maxSum;
+}
