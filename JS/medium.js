@@ -90,3 +90,23 @@ var bulbSwitch = function(n) {
 var bulbSwitch = function(n) {
     return Math.floor(Math.sqrt(n));
 };
+function findOptimalResources(arr, k) {
+    // Write your code here
+    const n = arr.length;
+    if(k>n) return -1;
+
+    let maxSum = -1;
+    let currSum = 0;
+    let start=0;
+    let end=start+k;
+    while(end<=n){
+        const subArr = arr.slice(start, end);
+        const deplicates = new Set(subArr).size !== k;
+        if(!deplicates){
+            currSum = subArr.reduce((a,b)=>a+b, 0);
+            maxSum = Math.max(maxSum, currSum);
+        }
+        start ++;
+    }
+    return maxSum;
+}
